@@ -7,13 +7,14 @@ class PlacesController < ApplicationController
   end
 
   def show
-    #   # find a Place
-        @place = Place.find_by({"id" => params["id"]})
-    #   # render places/show view with details about Place
+    # find a Place
+    @place = Place.find_by({"id" => params["id"]})
+    @entry = Entry.where({ "place_id" => @place["id"] })
+    # render places/show view with details about Place
   end
 
   def new
-    #   # render view with new Place form
+    # render view with new Place form
   end
 
   def create
